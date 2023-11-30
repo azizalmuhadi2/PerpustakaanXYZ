@@ -17,32 +17,7 @@ public class PerpustakaanXYZ {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        
-        //Menu awal -> Pilih sebagai admin/anggota
-        
-        //Menu admin
-        //Tambah anggota, hapus anggota, tambah buku, hapus buku, menampilkan laporan aktivitas
-        
-        //menu anggota
-        //meminjam buku, mengembalikan buku, melihat notifikasi
-//        System.out.println("Selamat Datang Di Perpustakaan XYZ");
-//        System.out.println("1. Login Sebgagai Admin");
-//        System.out.println("2. Login Sebagai Anggota");
-//        System.out.println("0. Keluar");
-//        
-//        System.out.println("1. Tambah Anggota");
-//        System.out.println("2. Hapus Anggota");
-//        System.out.println("3. Tambah Buku");
-//        System.out.println("4. Hapus Buku");
-//        System.out.println("5. Laporan Aktifitas");
-//        System.out.println("6. Kembali Ke Menu Utama");
-//        
-//        System.out.println("1. Koleksi Buku");
-//        System.out.println("2. Pinjam Buku");
-//        System.out.println("3. Kembalikan Buku");
-//        System.out.println("4. Lihat Notifikasi");
-//        System.out.println("5. Kembali Ke Menu Utama");
+
         
         Admin admin = new Admin();
         //public AnggotaPerpustakaan(String idAnggota, String nama, String alamat)
