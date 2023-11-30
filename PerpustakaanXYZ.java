@@ -81,7 +81,8 @@ public class PerpustakaanXYZ {
                     System.out.println("5. Laporan Aktivitas");
                     System.out.println("6. Lihat Daftar Anggota");
                     System.out.println("7. Lihat Daftar Buku");
-                    System.out.println("8. Kembali Ke Menu Utama");
+                    System.out.println("8. Tambah notifikasi");
+                    System.out.println("9. Kembali Ke Menu Utama");
                     int pilihanAdmin;
                     System.out.println("Pilihan: ");
                     pilihanAdmin = scanner.nextInt();
@@ -132,8 +133,17 @@ public class PerpustakaanXYZ {
                             admin.koleksiBuku();
                             break;
                         case 8:
+                            System.out.println("Masukan Judul Notifikasi: ");
+                            String judulNotifikasi = scanner.nextLine();
+                            System.out.println("Masukan Isi Notifikasi: ");
+                            String isiNotifikasi = scanner.nextLine();
+
+                            System.out.println("Notifikasi berhasil ditambahkan.");
+                            System.out.println(judulNotifikasi);
+                            System.out.println(isiNotifikasi);
                             break;
-                            
+                        case 9:
+                            break;
                         default:
                             System.out.println("Input tidak valid!");
                             break;
@@ -146,8 +156,7 @@ public class PerpustakaanXYZ {
                     System.out.println("1. Koleksi Buku");
                     System.out.println("2. Pinjam Buku");
                     System.out.println("3. Kembalikan Buku");
-                    System.out.println("4. Lihat Notifikasi");
-                    System.out.println("5. Kembali Ke Menu Utama");
+                    System.out.println("4. Kembali Ke Menu Utama");
                     int pilihanAnggota;
                     System.out.println("Pilihan: ");
                     pilihanAnggota = scanner.nextInt();
@@ -164,7 +173,12 @@ public class PerpustakaanXYZ {
                             anggota1.pinjamBuku(isbnPinjam, idPinjam);
                         
                         case 3:
-                             
+                            System.out.println("Masukan ISBN dari buku yang ingin dikembalikan: ");
+                            String isbnKembali = scanner.nextLine();
+                            anggota1.kembalikanBuku(isbnKembali, admin);
+                            break;
+                        
+                        
                     }
             }
             
