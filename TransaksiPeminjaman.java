@@ -46,5 +46,23 @@ public class TransaksiPeminjaman {
         this.tempoPinjam = tempoPinjam;
     }
     
+    private boolean statusPinjam = false; // Menandakan apakah buku sudah dipinjam atau belum
+
+    // Metode untuk melakukan pinjaman buku
+    public void pinjamBuku(String tanggalPinjam, String waktuPinjam) {
+        if (!statusPinjam) { // Cek apakah buku sudah dipinjam atau belum
+            this.tanggalPinjam = tanggalPinjam; // Mengatur tanggal pinjam
+            this.waktuPinjam = waktuPinjam; // Mengatur waktu pinjam
+            statusPinjam = true; // Mengubah status buku menjadi sudah dipinjam
+            System.out.println("Buku berhasil dipinjam pada tanggal " + tanggalPinjam + " pukul " + waktuPinjam);
+        } else {
+            System.out.println("Maaf, buku sudah dipinjam sebelumnya");
+        }
+    }
+    
+    // Metode untuk mengecek status peminjaman buku
+    public boolean cekStatusPinjam() {
+        return statusPinjam;
+    }
     
 }
