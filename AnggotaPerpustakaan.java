@@ -99,20 +99,40 @@ public class AnggotaPerpustakaan {
     }
 
     
-    public void kembalikanBuku(Buku buku){
+    public void kembalikanBuku(String kodeISBN, Admin admin) {
         Scanner scanner = new Scanner(System.in);
+
+        // Iterate through the book collection to find the book with the given ISBN
+        Buku buku = null;
+        for (Buku book : admin.getDaftarBuku()) {
+            if (book.getKodeISBN().equals(kodeISBN)) {
+                buku = book;
+                break;
+            }
+        }
+
+        if (buku != null && !buku.isStatusBuku()) {
+            System.out.println("Masukan Tanggal Pengembalian: ");
+            String tanggalKembali = scanner.nextLine();
+            System.out.println("Masukan Waktu/Pukul Pengembalian: ");
+            String waktuKembali = scanner.nextLine();
+            System.out.println("Masukan Lama Peminjaman (hari): ");
+            int lamaPinjam = scanner.nextInt();
+
+            // Assuming this is the current instance of AnggotaPerpustakaan
+            TransaksiPengembalian transaksi = new TransaksiPengembalian(tanggalKembali, waktuKembali, lamaPinjam, kodeISBN, this);
+
+            // Add the transaction to the member's history
+            getRiwayatPengembalian().add(transaksi);
+
+            // Update the book status
+            buku.setStatusBuku(true);
+
+            System.out.println("Buku berhasil dikembalikan.");
+        } else {
+            System.out.println("Buku tidak dapat dikembalikan atau ISBN tidak valid.");
+        }
         
-        System.out.println("Masukan Tanggal Pengembalian: ");
-        String tanggalKembali = scanner.nextLine();
-        System.out.println("Masukan Waktu/Pukul Pengembalian: ");
-        String waktuKembali = scanner.nextLine();
-        System.out.println("Masukan Lama Peminjaman (hari): ");
-        int lamaPinjam = scanner.nextInt();
-        String kodeISBN = buku.getKodeISBN();
-        AnggotaPerpustakaan idAnggota = this;    
-        TransaksiPengembalian transaksi = new TransaksiPengembalian(tanggalKembali, waktuKembali, lamaPinjam, kodeISBN, idAnggota);
-        getRiwayatPengembalian().add(transaksi);
-        buku.setStatusBuku(true);
         
     }
     
