@@ -13,10 +13,14 @@ import java.util.Iterator;
  * @author SWIFT X 14
  */
 public class Admin {
+    
     private ArrayList<AnggotaPerpustakaan> daftarAnggota = new ArrayList<>();
     private ArrayList<Buku> daftarBuku = new ArrayList<>();
     private ArrayList<TransaksiPeminjaman> daftarTransaksi = new ArrayList<>();
-
+    public ArrayList<AnggotaPerpustakaan> getDaftarAnggota() {
+        return daftarAnggota;
+    }
+    
     public Admin() {
     }
   
